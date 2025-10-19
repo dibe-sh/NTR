@@ -1,0 +1,52 @@
+{
+  "name": "ntr",
+  "private": true,
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "cleanup": "node scripts/cleanup.js",
+    "cleanup:pack": "node scripts/cleanup.js --package",
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "lint:fix": "turbo lint -- --fix",
+    "format": "prettier --write \"**/*.{js,ts,tsx,json,css,md}\"",
+    "format:check": "prettier --check \"**/*.{js,ts,tsx,json,css,md}\"",
+    "type-check": "turbo type-check",
+    "clean": "turbo clean",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@turbo/gen": "^1.10.12",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "chalk": "^4.1.2",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-unused-imports": "^3.2.0",
+    "fs-extra": "^11.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.0",
+    "prettier": "^3.0.0",
+    "turbo": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "npm@10.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
+  }
+}
